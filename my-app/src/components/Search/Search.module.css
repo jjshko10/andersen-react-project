@@ -7,3 +7,7 @@
 .search__input {
     width: 500px;
 }
+
+.button {
+    cursor: pointer;
+}

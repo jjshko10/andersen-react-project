@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { errorSubmit, iPayload } from "../../../app/actions/submitForm";
+import { errorSubmit, iPayload, submitForm } from "../../../app/actions/submitForm";
 import { closeModal } from "../../../app/actions/modalActions";
 
 const Form = () => {
@@ -13,24 +13,43 @@ const Form = () => {
     const [passwordError, setPasswordError] = useState('Empty password!');
     const [formValid, setFormValid] = useState(false);
     const dispatch = useDispatch();
-    const { isErrorRegistration } = useSelector((state:any) => state.submitFormReducer);
+    const { isErrorRegistration } = useSelector((state:any) => state.authorizationReducer);
+    const { isRegistration, isAuthorization} = useSelector((state:any) => state.flagsReducer);
 
-    const submitForm = (event) => {
+    const submitFormHandler = (event) => {
         event.preventDefault();
         const userInfo = {
             login,
             password
         }
-        //вернуться
         const localStorageInfo:any = localStorage.getItem('user') || '[]';
         const findLogin = JSON.parse(localStorageInfo).filter((elem:iPayload) => elem.login === userInfo.login);
-        
-        if (findLogin.length === 1) {
-            dispatch(errorSubmit());
-        } else {
-            const usersInfo = JSON.stringify([userInfo, ...JSON.parse(localStorageInfo)]);
-            localStorage.setItem('user', usersInfo);
-            dispatch(closeModal());
+        const findPassword = JSON.parse(localStorageInfo).filter((elem:iPayload) => elem.password === userInfo.password);
+
+        const registration = () => {
+            if (findLogin.length === 1) {
+                dispatch(errorSubmit());
+            } else {
+                const usersInfo = JSON.stringify([userInfo, ...JSON.parse(localStorageInfo)]);
+                localStorage.setItem('user', usersInfo);
+                dispatch(submitForm(userInfo));
+                dispatch(closeModal());
+            }
+        };
+
+        const authorization = () => {
+            if (findPassword.length === 1 && findPassword[0].login === findLogin[0].login) {
+                dispatch(submitForm(userInfo));
+                dispatch(closeModal());
+            } else {
+                dispatch(errorSubmit());
+            }
+        };
+
+        if (isRegistration) {
+            registration();
+        } else if (isAuthorization) {
+            authorization();
         }
     };
 
@@ -96,7 +115,7 @@ const Form = () => {
                 type="submit"
                 className='modal__button'
                 disabled={!formValid}
-                onClick={(event) => submitForm(event)}
+                onClick={(event) => submitFormHandler(event)}
             >
             Submit
             </button>

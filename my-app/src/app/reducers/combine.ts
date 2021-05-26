@@ -1,9 +1,13 @@
-import { modalReducer } from './modalReducer';
 import { combineReducers } from 'redux';
-import { submitFormReducer } from './submitFormReducer';
+import { cardsReducer } from './cardsReducer';
+import { flagsReducer } from './flagsReducer';
+import { modalReducer } from './modalReducer';
+import { authorizationReducer } from './authorizationReducer';
 
 export const combine = () => 
     combineReducers({
-        submitFormReducer,
-        modalReducer
+        authorizationReducer,
+        modalReducer,
+        flagsReducer,
+        cardsReducer
     });

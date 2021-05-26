@@ -1,4 +1,4 @@
-import { ERROR_SUBMIT, SUBMIT_FORM } from '../actions/actionTypes';
+import { ERROR_SUBMIT, EXIT_FROM_ACCOUNT, SUBMIT_FORM } from '../actions/actionTypes';
 
 const defaultState = {
     currentUser: {},
@@ -6,7 +6,7 @@ const defaultState = {
     isErrorRegistration: ''
 };
 
-export const submitFormReducer = (state = defaultState, action) => {
+export const authorizationReducer = (state = defaultState, action) => {
     switch (action.type) {
         case SUBMIT_FORM: {
             return {
@@ -20,6 +20,9 @@ export const submitFormReducer = (state = defaultState, action) => {
                 ...state,
                 isErrorRegistration: 'Wrong login or password!'
             }
+        }
+        case EXIT_FROM_ACCOUNT: {
+            return defaultState
         }
         default: return state
     }

@@ -7,8 +7,6 @@ function App() {
 
   const { isModalActive } = useSelector((state:any) => state.modalReducer);
   
-  
-  
   return (
     <div className="container">
       <Header />
