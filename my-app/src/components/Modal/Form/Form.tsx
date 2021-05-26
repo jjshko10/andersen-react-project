@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { errorSubmit, iPayload } from "../../../app/actions/submitForm";
+import { closeModal } from "../../../app/actions/modalActions";
 
-const Form = ({setActive}:any) => {
+const Form = () => {
 
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
@@ -29,7 +30,7 @@ const Form = ({setActive}:any) => {
         } else {
             const usersInfo = JSON.stringify([userInfo, ...JSON.parse(localStorageInfo)]);
             localStorage.setItem('user', usersInfo);
-            setActive(false);
+            dispatch(closeModal());
         }
     };
 

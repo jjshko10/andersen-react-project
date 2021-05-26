@@ -5,13 +5,15 @@ import Search from './components/Search/Search';
 
 function App() {
 
-  const { modalActive, setModalActive } = useSelector((state:any) => state.modalReducer);
+  const { isModalActive } = useSelector((state:any) => state.modalReducer);
+  
+  
   
   return (
     <div className="container">
       <Header />
       <Search />
-      <Modal active={modalActive} setActive={setModalActive} />
+      <Modal isActive={isModalActive} />
     </div>
   );
 }

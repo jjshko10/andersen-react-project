@@ -1,9 +1,9 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import styles from './SignUp.module.css'
-import { openModal } from '../../../app/actions/openModal';
+import { openModal } from '../../../app/actions/modalActions';
 
 const SignUp:React.FunctionComponent = () => {
-    
+
     const dispatch = useDispatch();
 
     return (

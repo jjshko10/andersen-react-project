@@ -1,8 +1,7 @@
-import { OPEN_MODAL } from "../actions/actionTypes"
+import { CLOSE_MODAL, OPEN_MODAL } from "../actions/actionTypes"
 
 const defaultState = {
-    modalActive: false,
-    setModalActive: false
+    isModalActive: false
 }
 
 export const modalReducer = (state = defaultState, action) => {
@@ -10,8 +9,13 @@ export const modalReducer = (state = defaultState, action) => {
         case OPEN_MODAL: {
             return {
                 ...state,
-                modalActive: true,
-                setModalActive: true
+                isModalActive: true,
+            }
+        }
+        case CLOSE_MODAL: {
+            return {
+                ...state,
+                isModalActive: false
             }
         }
         default: return state
