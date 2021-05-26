@@ -1,12 +1,18 @@
-import React from 'react';
-import './App.css';
+import React, { useState } from 'react';
+import Header from './components/Header/Header';
+import Modal from './components/Modal/Modal';
+import Search from './components/Search/Search';
 
 function App() {
+
+  const [modalActive, setModalActive] = useState(false);
+  
   return (
     <div className="container">
-      <header>
-        <img src="./images/pokemons.png" alt="log" />
-      </header>
+      <Header />
+      <Search />
+      <button onClick={() => setModalActive(true)}>click me</button>
+      <Modal active={modalActive} setActive={setModalActive} />
     </div>
   );
 }
