@@ -12,7 +12,7 @@ const Form = ({setActive}:any) => {
     const [passwordError, setPasswordError] = useState('Empty password!');
     const [formValid, setFormValid] = useState(false);
     const dispatch = useDispatch();
-    const { isErrorRegistration, currentUser, isAuth } = useSelector((state:any) => state.submitFormReducer);
+    const { isErrorRegistration } = useSelector((state:any) => state.submitFormReducer);
 
     const submitForm = (event) => {
         event.preventDefault();
