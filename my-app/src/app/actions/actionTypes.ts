@@ -5,4 +5,3 @@ export const ERROR_SUBMIT = 'ERROR_SUBMIT';
 export const OPEN_MODAL = 'OPEN_MODAL';
 export const CLOSE_MODAL = 'CLOSE_MODAL';
 export const EXIT_FROM_ACCOUNT = 'EXIT_FROM_ACCOUNT';
-export const SEARCH_CARDS = 'SEARCH_CARDS';
