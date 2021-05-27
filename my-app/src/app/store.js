@@ -11,6 +11,6 @@ export const getCards = async () => {
     const content = await api.json();
     const cards = content.results;
     return cards;
-}
+};
 
 export const store = createStore(combine(), composedEnchanters);
