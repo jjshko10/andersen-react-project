@@ -1,3 +1,4 @@
+import { fetchCardsReducer } from './fetchCardsReducer';
 import { combineReducers } from 'redux';
 import { flagsReducer } from './flagsReducer';
 import { modalReducer } from './modalReducer';
@@ -7,5 +8,6 @@ export const combine = () =>
     combineReducers({
         authorizationReducer,
         modalReducer,
-        flagsReducer
+        flagsReducer,
+        fetchCardsReducer
     });

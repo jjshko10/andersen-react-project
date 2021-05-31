@@ -5,3 +5,6 @@ export const ERROR_SUBMIT = 'ERROR_SUBMIT';
 export const OPEN_MODAL = 'OPEN_MODAL';
 export const CLOSE_MODAL = 'CLOSE_MODAL';
 export const EXIT_FROM_ACCOUNT = 'EXIT_FROM_ACCOUNT';
+export const FETCH_REQUEST = 'FETCH_REQUEST';
+export const FETCH_SUCCESS = 'FETCH_SUCCESS';
+export const FETCH_ERROR = 'FETCH_ERROR';
