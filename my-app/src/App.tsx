@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import Header from './components/Header/Header';
 import Modal from './components/Modal/Modal';
-import Search from './components/Search/Search';
+import Search from './components/Main/Main';
 
 function App() {
 
