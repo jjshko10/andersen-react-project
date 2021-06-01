@@ -1,9 +1,10 @@
+import React from "react";
+import { useSelector } from "react-redux";
+import logo from "../../images/pokemons.png";
+import Exit from "./Exit/Exit";
 import styles from "./Header.module.css";
 import SignIn from "./Sign In/SignIn";
 import SignUp from "./Sign Up/SignUp";
-import logo from "../../images/pokemons.png";
-import { useSelector } from "react-redux";
-import Exit from "./Exit/Exit";
 
 const Header:React.FunctionComponent = () => {
 
@@ -11,7 +12,14 @@ const Header:React.FunctionComponent = () => {
     
     return (
         <header className={styles.header}>
-            <img src={logo} className={styles.image} alt="logo" />
+            <img
+                src={logo}
+                className={styles.image}
+                alt="logo"
+                /* onClick={() => {
+                    console.log('clicked');
+                }} */
+            />
                 {!isAuth
                     ?  
                         <div>

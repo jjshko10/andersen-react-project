@@ -1,12 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
 import _ from "lodash";
-import React from "react";
-import { getCards } from "../../../app/actions/pokemonsActions";
+import React, { useState } from "react";
+import { getCards } from "app/actions/pokemonsActions";
 import { Link } from "react-router-dom";
 import styles from "./Cards.module.css";
-
+import ReactPaginate from "react-paginate";
 
 const Cards = (props) => {
+    const [ search, setSearch ] = useState('');
     const dispatch = useDispatch();
     const cards = useSelector((state:any) => state.cardsReducer);
     React.useEffect(() => {
@@ -18,21 +19,24 @@ const Cards = (props) => {
     };
 
     const showCards = () => {
-        console.log(cards.data);
 
         if (cards.loading) {
             return <span>Loading...</span>
         }
         
         if (!_.isEmpty(cards.data)) {
-            return cards.data.map(element => {
-                return (
-                    <div className={styles.card_item}>
-                        <span>{element.name}</span>
-                        <Link to={`/pokemon/${element.name}`}>View</Link>
-                    </div>
-                )
-            })
+            return (
+                <div className={styles.wrapper}>
+                    {cards.data.map(element => {
+                        return (
+                            <div className={styles.card_item} /* key={} */>
+                                <span>{element.name}</span>
+                                <Link to={`/pokemon/${element.name}`} className={styles.view}>View</Link>
+                            </div>
+                        )
+                    })}
+                </div>
+            )
         }
 
         if (cards.error !== '') {
@@ -44,7 +48,29 @@ const Cards = (props) => {
 
     return (
         <div>
+            <h1>Search</h1>
+                <input
+                    type="text"
+                    placeholder="Enter pokemon's name"
+                    className={styles.search__input}
+                    onChange={event => setSearch(event.target.value)}
+                />
+            <button
+                className={styles.button}
+                onClick={() => props.history.push(`/pokemon/${search}`)}
+            >
+            Go
+            </button>
             {showCards()}
+            {!_.isEmpty(cards.data) && (
+                <ReactPaginate
+                    containerClassName={styles.pagination}
+                    pageCount={Math.ceil(cards.count / 15)}
+                    pageRangeDisplayed={2}
+                    marginPagesDisplayed={1}
+                    onPageChange={page => fetchCards(page.selected + 1)}
+                />
+            )}
         </div>
     )
 };

@@ -27,7 +27,7 @@ export const cardsReducer = (state = defaultState, action) => {
         case CARDS_LOADING_ERROR:
             return {
                 ...state,
-                loading: true,
+                loading: false,
                 error: 'impossible to get pokemon'
             }
         default: return state

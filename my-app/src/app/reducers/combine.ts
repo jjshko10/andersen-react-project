@@ -1,3 +1,4 @@
+import { pokemonMultipleReducer } from './pokemonMultipleReducer';
 import { cardsReducer } from './cardsReducer';
 import { combineReducers } from 'redux';
 import { flagsReducer } from './flagsReducer';
@@ -9,5 +10,6 @@ export const combine = () =>
         authorizationReducer,
         modalReducer,
         flagsReducer,
-        cardsReducer
+        cardsReducer,
+        pokemonMultipleReducer
     });

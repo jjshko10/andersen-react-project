@@ -1,20 +1,3 @@
-.search {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.search__input {
-    width: 500px;
-    margin-bottom: 20px;
-}
-
-.button {
-    cursor: pointer;
-}
-
-.link {
-    font-style: oblique;
-    color: black;
-    font-size: 25px;
+.content {
+    text-align: center;
 }

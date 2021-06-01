@@ -1,3 +1,44 @@
+.wrapper {
+    width: 600px;
+    margin: auto;
+}
+
 .card_item {
-    
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid coral;
+    border-radius: 7px;
+}
+
+.view {
+    text-decoration: none;
+    color: black;
+}
+
+.search {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.search__input {
+    width: 500px;
+    margin-bottom: 20px;
+}
+
+.button {
+    cursor: pointer;
+}
+
+.pagination {
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+    margin: 15px auto;
+    padding: 0;
+    list-style: none;
+    cursor: pointer;
 }

@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import Header from './components/Header/Header';
 import Modal from './components/Modal/Modal';
-import Search from './components/Main/Main';
+import Main from './components/Main/Main';
 
 function App() {
 
@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="container">
       <Header />
-      <Search />
+      <Main />
       <Modal isActive={isModalActive} />
     </div>
   );
