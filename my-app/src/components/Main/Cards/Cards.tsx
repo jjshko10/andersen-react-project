@@ -27,9 +27,9 @@ const Cards = (props) => {
         if (!_.isEmpty(cards.data)) {
             return (
                 <div className={styles.wrapper}>
-                    {cards.data.map(element => {
+                    {cards.data.map((element, index) => {
                         return (
-                            <div className={styles.card_item} /* key={} */>
+                            <div className={styles.card_item} key={index}>
                                 <span>{element.name}</span>
                                 <Link to={`/pokemon/${element.name}`} className={styles.view}>View</Link>
                             </div>

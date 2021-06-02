@@ -4,9 +4,7 @@ import Modal from './components/Modal/Modal';
 import Main from './components/Main/Main';
 
 function App() {
-
   const { isModalActive } = useSelector((state:any) => state.modalReducer);
-  
   
   return (
     <div className="container">

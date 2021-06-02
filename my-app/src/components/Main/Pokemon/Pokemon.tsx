@@ -26,14 +26,14 @@ const Pokemon = (props) => {
                     </div>
                     <div>
                         <h1 className={styles.headers}>Stats:</h1>
-                        {pokemonData.stats.map(element => {
-                            return <span className={styles.stats}>{element.stat.name} : {element.base_stat}</span>
+                        {pokemonData.stats.map((element, index) => {
+                            return <span className={styles.stats} key={index}>{element.stat.name} : {element.base_stat}</span>
                         })}
                     </div>
                     <div>
                         <h1 className={styles.headers}>Abilities:</h1>
-                        {pokemonData.abilities.map(element => {
-                            return <span className={styles.stats}>{element.ability.name}</span>
+                        {pokemonData.abilities.map((element, index) => {
+                            return <span className={styles.stats} key={index}>{element.ability.name}</span>
                         })}
                     </div>
                 </div>

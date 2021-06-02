@@ -5,9 +5,8 @@ import Pokemon from './Pokemon/Pokemon';
 
 
 const Main = () => {
-
     return (
-        <main className={styles.search}>
+        <main>
             <div className={styles.content}>
                 <Switch>
                     <Route path={"/"} exact component={Cards} />
