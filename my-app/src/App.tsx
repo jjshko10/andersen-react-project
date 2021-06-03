@@ -1,12 +1,16 @@
-import React from 'react';
-import './App.css';
+import { useSelector } from 'react-redux';
+import Header from './components/Header/Header';
+import Modal from './components/Modal/Modal';
+import Main from './components/Main/Main';
 
 function App() {
+  const { isModalActive } = useSelector((state:any) => state.modalReducer);
+  
   return (
     <div className="container">
-      <header>
-        <img src="./images/pokemons.png" alt="log" />
-      </header>
+      <Header />
+      <Main />
+      <Modal isActive={isModalActive} />
     </div>
   );
 }
